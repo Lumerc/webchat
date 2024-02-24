@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 //#!/usr/bin/env node
 //
 // WebSocket chat server
@@ -24,6 +26,7 @@
 // Any copyright is dedicated to the Public Domain.
 // http://creativecommons.org/publicdomain/zero/1.0/
 
+>>>>>>> 1b18f31... first version of site
 "use strict";
 
 var http = require('http');
