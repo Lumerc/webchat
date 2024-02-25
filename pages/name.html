@@ -1,0 +1,91 @@
+<html>
+  <head>
+    <title>Чатик — задай имя</title>
+    <meta name="color-scheme" content="light only">
+    <style>
+      body
+      {
+          background: #313131;
+          margin: 0;
+          padding: 0;
+          font-family: Tahoma;
+      }
+      #box
+      {
+          position: fixed;
+          width: 400px;
+          height: 130px;
+          background: #bdbdbd;
+          box-shadow: 5px 6px 1px 4px #1e1e1e;
+          left: 50%;
+          top: 50%;
+          margin-left: -200px;
+          margin-top: -65px;
+          border-radius: 5px;
+      }
+      #header
+      {
+          font-size: 25px;
+          text-align: center;
+          text-shadow: 1px 1px 1px white;
+          color: #113a37 !important;
+          line-height: 30px;
+          margin: 20px 0 25px;
+          font-weight: 900;
+      }
+      #nickname
+      {
+          font-size: 16px;
+          line-height: 30px;
+          text-align: center;
+          border-radius: 3px;
+          color: black;
+          box-shadow: 1px 1px 2px black inset;
+          border: 1px solid #212121;
+          font-weight: 900;
+          width: 240px;
+      }
+      #row
+      {
+          text-align: center;
+      }
+      #button
+      {
+          font-size: 20px;
+          line-height: 30px;
+          padding: 0px 10px;
+          position: relative;
+          color: #ffffff;
+          background: #1c625d;
+          cursor: pointer;
+          border-radius: 3px;
+      }
+    </style>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() 
+      {
+          document.getElementById('nickname').addEventListener('keyup', function(event) 
+          {
+              event.preventDefault();
+              if(event.keyCode === 13)
+                  makeName();
+          });
+      }, false);
+  
+      function makeName()
+      {
+          window.location.href = '/' + document.getElementById('nickname').value;
+      }
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  </head>
+  <body>
+    <div id="box">
+      <div id="header">Выбери своё имя</div>
+      <div id="row">
+        <input type="text" autofocus  id="nickname">
+        <input type="button" id="button" onclick="makeName()" value="Выбрать">
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+  <title>Чатик</title>
+  <meta charset="utf-8">
+  <link href="/assets/chat.css" rel="stylesheet">
+  <script src="/assets/adapter.js"></script>
+  <link rel="stylesheet" href="/assets/bootstrap.min.css?v1">
+  <link rel="stylesheet" href="/assets/font-awesome.all.css">
+  <script src="/assets/jquery-3.2.1.slim.min.js" ></script>
+  <script src="/assets/popper.min.js" ></script>
+  <script src="/assets/bootstrap.min.js" ></script>
+  <script type="text/javascript" src="/assets/chatclient.js?v1"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+<body>
+ <div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col align-self-center">
+                <button id="mute" type="button" class="btn  btn-lg"><i id="muteIcon" class="fa fa-microphone fa-2x" aria-hidden="true"></i></button>
+                <button id="cameraOnOff" type="button" class="btn  btn-lg"><i id="cameraIcon" class="fa fa-camera fa-2x" aria-hidden="true"></i></button>
+                <button id="fullScreen" type="button" class="btn  btn-lg"><i id="fullIcon" class="fa fa-expand fa-2x" aria-hidden="true"></i></button>
+            </div>
+        </div>
+    </div>
+    <div class="listwrapper">
+      <div class="header">Позвонить:</div>
+      <div class="userlistbox">
+      </div>
+    </div>
+    <div class="card-body">
+        <div id="vscreen">
+            <video class="card-img img-fluid" id="them" playsinline="" autoplay="" muted="">
+            </video>
+            <video class="card-img img-fluid" id="me" playsinline="" autoplay="" muted="">
+            </video>
+        </div>
+    </div>
+    <div class="bottomStats">
+        <span id="duration"></span>
+        <strong id="delay">0</strong> ping
+        <strong id="countZero">0</strong>% потерь
+        <span id="status">Ожидание гостя</span>
+    </div>
+</div>
+
+<div id="share" class="modal" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Отправьте эту ссылку своему собеседнику</h5>
+            </div>
+            <div class="modal-body" id="shareQR">
+                <p>Поделитесь этой страничкой</p>
+                <p>Затем нажмите "готово"</p>
+                <p>Также вам нужно предоставить доступ к камере и микрофону</p>
+            </div>
+            <div class="modal-footer">
+                <button id="shareDone" type="button" class="btn btn-secondary" data-dismiss="modal" onclick="shared();">Готово</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="accept" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Принять звонок</h5>
+            </div>
+            <div class="modal-body">
+                <p>Нажмите 'Принять' чтобы начать разговор</p>
+                <p>Также вам нужно предоставить доступ к камере и микрофону</p>
+            </div>
+            <div class="modal-footer">
+                <button id="callAccept" type="button" class="btn btn-secondary" data-dismiss="modal" onclick="accepted();">Принять</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="nowebrtc" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Извините</h5>
+            </div>
+            <div class="modal-body">
+                <p>К сожалению, но ваш браузер не поддерживает необходимую для совершения вызова технологию WebRTC</p>
+                <p>Пожалуйста вернитесь используя браузер Safari, Chrome, FireFox, Edge - или любой другой популярный браузер</p>
+                <p>Вам вероятно будет удобно это сделать используя кнопку 'поделиться с' или 'открыть в'</p>
+            </div>
+            <div class="modal-footer">
+                <button id="sadder" type="button" class="btn btn-secondary" data-dismiss="modal">Принять</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="facebookapp" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Извините</h5>
+            </div>
+            <div class="modal-body">
+                <p>К сожалению, но приложения Facebook блокируют технологию WebRTC.</p>
+                <p>Пожалуйста попробуйте позвонить используя браузеры Chrome, FireFox или Edge.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="sad" type="button" class="btn btn-secondary" data-dismiss="modal">Принять</button>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+</footer>
+</body>
+</html>
